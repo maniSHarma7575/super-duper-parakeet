@@ -36,4 +36,27 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function timeline()
+    {
+        $id = $this->follows()->pluck('id');
+        $id->push($this->id);
+        return Tweet::whereIn('user_id', $id)->latest()->get();
+    }
+    public function tweets()
+    {
+        return $this->hasMany(Tweet::class);
+    }
+    public function follow(User $user)
+    {
+        return $this->follows()->save($user);
+    }
+    public function follows()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id');
+    }
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
 }
