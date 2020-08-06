@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/tweets', 'TweetController@index')->name('home');
     Route::post('/profiles/{user:username}/follow', 'FollowsController@store');
     Route::get('/profiles/{user:username}/edit', 'ProfileController@edit')->middleware('can:edit,user');
+    Route::patch('/profiles/{user:username}', 'ProfileController@update');
 });
 
 Route::get('/profiles/{user:username}', 'ProfileController@show')->name('profile');
