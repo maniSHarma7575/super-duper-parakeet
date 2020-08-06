@@ -23,14 +23,20 @@
 
 <body>
     <div id="app">
-        <section class="px-8 py-4">
+        <section class="px-8 py-4 mb-6">
             <header class="container mx-auto">
-                <h1 class="">
-                    <img src="/images/logo.svg" alt="Tweety" class=""></h1>
+                <h1>
+                    <a href="/tweets">
+                        <img src="/images/logo.svg" alt="Tweety">
+                    </a>
+                </h1>
             </header>
         </section>
-        {{$slot}}
+
+        {{ $slot }}
     </div>
+
+    <script src="http://unpkg.com/turbolinks"></script>
 </body>
 
 </html>
