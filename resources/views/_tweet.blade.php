@@ -1,6 +1,6 @@
 <div class="flex p-4 border-b border-b-gray-400">
     <div class="mr-2 flex-shrink-0">
-        <a href="{{route('profile',$tweet->user)}}"><img src="https://picsum.photos/50?u={{$tweet->user->email}}" alt="user" class="rounded-full mr-2"></a>
+        <a href="{{route('profile',$tweet->user)}}"><img width="50" src="{{asset('storage/'.$tweet->user->avatar)}}" alt="user" class="rounded-full mr-2"></a>
     </div>
     <div class="">
         <a href="{{route('profile',$tweet->user)}}" class="">
